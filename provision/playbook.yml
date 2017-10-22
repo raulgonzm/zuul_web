@@ -1,10 +1,14 @@
 ---
-- hosts: development
+- hosts: all
   gather_facts: no
+  pre_tasks:
+    - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
   sudo: yes
+  sudo_user: root
+  remote_user: vagrant
+  vars:
+    - update_apt_cache: yes
   roles:
-    - role: ntp
-      tags: ntp
     - role: erlang
       tags: erlang
     - role: elixir
@@ -13,5 +17,3 @@
       tags: phoenix
     - role: postgresql
       tags: postgresql
-    - role: vagrant
-      tags: vagrant
