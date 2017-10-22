@@ -36,3 +36,4 @@ node_modules/
 .vagrant/
 
 # End of https://www.gitignore.io/api/git,elixir,phoenix,ansible,vagrant
+ubuntu-xenial-16.04-cloudimg-console.log
